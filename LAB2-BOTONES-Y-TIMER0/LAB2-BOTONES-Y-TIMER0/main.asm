@@ -79,7 +79,7 @@ MAIN_LOOP:
 
 	CLR     R22                 // SI LLEGA A 15, REINICIAMOS EL CONTADOR DE OVERFLOWS
 	INC     R23                 // INCREMENTAMOS EL CONTADOR PRINCIPAL
-	ANDI    R23, 0x0F           // LIMITAMOS A 4 BITS (0–15)
+	ANDI    R23, 0x0F           // LIMITAMOS A 4 BITS 
 
 SEGUNDO:
     RCALL   CONTINUAR           // LLAMAMOS RUTINA COTNINUAR 
@@ -103,7 +103,7 @@ SEGUNDO:
 CONTINUAR:
     IN      R16, PORTB        // LEEMOS EL ESTADO ACTUAL DEL PUERTO
     ANDI    R16, 0x10         // CONSERVAMOR PB4
-    OR      R16, R23          // COBMINAMOS LEDs CON CONTADOR 
+    OR      R16, R23          // COMBINAMOS LEDs CON CONTADOR 
     OUT     PORTB, R16        // SCAMAOS EL PUERTOB
 	RET
 
@@ -111,7 +111,7 @@ WAIT_OVF:                      // FUNCION QUE ESPERA A QUE OCURRA UN OVERFLOW EN
 WAIT:
     IN      R16, TIFR0         // LEEMOS EL REGISTRO DEL TIMER0                     
     SBRS    R16, TOV0          // SI EL BIT TOV0 ESTA EN 1, SE SALTA LA SIGUIENTE INSTRUCCION
-    RJMP    WAIT               // SI TODAVIA NO HAY OVERFLOW (TOV0 = 0)
+    RJMP    WAIT               // SI TODAVIA NO HAY OVERFLOW 
     SBI     TIFR0, TOV0        // LIMPIAMOS LA BANDERA DE OVERFLOW
     RET                        // REGRESAMOS AL PROGRAMA PRINCIPAL
 
@@ -153,7 +153,7 @@ DISPLAY:                                 // FUNCION DE DISPLAY DONDE DEFINIMOS E
     ADD     ZL, R21                      // SUMAMOS EL VALOR DEL CONTADOR (R21) A ZL
                                          // ESTO NOS POSICIONA EN EL NUMERO CORRECTO DENTRO DE LA TABLA
 
-    CLR     R1                           // LIMPIAMOS R1 (DEBE ESTAR EN 0 PARA USARSE EN ADC)
+    CLR     R1                          // LIMPIAMOS R1 (DEBE ESTAR EN 0 PARA USARSE EN ADC)
     ADC     ZH, R1                       // AJUSTAMOS ZH SI HUBO ACARREO EN LA SUMA ANTERIOR
 
     LPM     R20, Z                       // LEEMOS DE MEMORIA DE PROGRAMA (FLASH) EL DATO APUNTADO POR Z
@@ -169,7 +169,7 @@ COMPARACION:
     LDI     R17, (1<<PB4)        // CARGAMOS EN R17 UNA MASCARA CON EL BIT PB4 EN 1
     EOR     R16, R17             // HACEMOS XOR ENTRE R16 Y LA MASCARA                      
     OUT     PORTB, R16           // ESCRIBIMOS EL NUEVO VALOR EN PORTB
-    CLR     R23                  // LIMPIAMOS R23 (PROBABLEMENTE CONTADOR AUXILIAR)
+    CLR     R23                  // LIMPIAMOS R23 CONTADOR LEDS
     RET                          // REGRESAMOS AL PROGRAMA PRINCIPAL
 	
 	               
