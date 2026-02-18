@@ -2,7 +2,7 @@
 * 
 *
 * Autor : Pedro Pablo Porras
-* Descripción: LABORATORIO 2: BOTONES Y TIMER0 
+* DescripciÃ³n: LABORATORIO 2: BOTONES Y TIMER0 
 */
 
 .include "M328PDEF.inc"
@@ -12,7 +12,7 @@
 .org 0x0000
 
 /****************************************/
-/* CONFIGURACIÓN DE LA PILA */
+/* CONFIGURACIÃ“N DE LA PILA */
 
 RESET:
     LDI     R16, LOW(RAMEND)
@@ -134,7 +134,7 @@ ESPERA_PC0:
     RJMP    ESPERA_PC0       
     RET
 
-RESTAR:                          // FUNCIÓN DE DECREMENTO 
+RESTAR:                          // FUNCIÃ“N DE DECREMENTO 
     DEC     R21
     ANDI    R21, 0x0F
     RCALL   DELAY
@@ -169,11 +169,15 @@ COMPARACION:
     LDI     R17, (1<<PB4)        // CARGAMOS EN R17 UNA MASCARA CON EL BIT PB4 EN 1
     EOR     R16, R17             // HACEMOS XOR ENTRE R16 Y LA MASCARA                      
     OUT     PORTB, R16           // ESCRIBIMOS EL NUEVO VALOR EN PORTB
+<<<<<<< HEAD
     CLR     R23                  // LIMPIAMOS R23 CONTADOR LEDS
+=======
+    CLR     R23                  // LIMPIAMOS R23 CONTADOR DE LEDs
+>>>>>>> b23b7f47c8be58da2235f74335f5f6468deeedbd
     RET                          // REGRESAMOS AL PROGRAMA PRINCIPAL
 	
 	               
-DELAY:                           // FUNCION DE ANTI REBOTE 
+DELAY:                           // FUNCION DE ANTI-REBOTE 
     LDI     R18, 255 
 D1:
     LDI     R19, 255
