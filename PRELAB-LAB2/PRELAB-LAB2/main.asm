@@ -42,6 +42,7 @@ RESET:
 	OUT     PORTD, R16 
 
     CLR     R21                // CONTADOR  A UTILIZAR
+	CLR     R22
 
 	LDI     R16, 0x00          // APAGAMOS LA COMUNICACION SERIAL DE PINEB
 	STS     UCSR0B, R16 
@@ -60,24 +61,34 @@ RESET:
 
 MAIN_LOOP:
     
-    IN      R16, TIFR0 
-    RCALL   WAIT_OVF              // MANDAMOS A LLAMAR EL TIMER0 
+    RCALL   WAIT_OVF      // 100ms
 
-	INC     R21                 // INCREMENTAMOS EL REGISTRO
-	ANDI    R21, 0X0F           // TOMAMOS EL NIBBLE MENOS SIGNIFICATIVO
-	MOV     R16, R21            // MOVEMMOS EL CONTAD0R A UN NUEVO REGISTRO 
-	OUT     PORTB, R16          // SACAMOS EL NUEVO REGISTRO A PORTB
-	RJMP    MAIN_LOOP
+    INC     R22           // CONTADOR DE OVERFLOWS
+
+    CPI     R22, 15
+    BRNE    CONTINUAR
+
+    CLR     R22
+    INC     R21
+    ANDI    R21, 0x0F
+
+CONTINUAR:
+
+    MOV     R23, R21
+    OUT     PORTB, R23
+
+    RJMP    MAIN_LOOP
 
 
 WAIT_OVF:
 WAIT:
-    IN     R16, TIFR0            // LEEMOS BANDERAS
-    SBRS   R16, TOV0             // VERIFICAMOS OVERFLOW 
-    RJMP   WAIT      
+    IN      R16, TIFR0
+    SBRS    R16, TOV0
+    RJMP    WAIT
 
-    SBI    TIFR0, TOV0           //  LIMPIAMOS BANDERA
+    SBI     TIFR0, TOV0
     RET
+
 
 
 
