@@ -2,7 +2,7 @@
 * 
 *
 * Autor : Pedro Pablo Porras
-* Descripción: LABORATORIO 2: BOTONES Y TIMER0 
+* DescripciÃ³n: LABORATORIO 2: BOTONES Y TIMER0 
 */
 
 .include "M328PDEF.inc"
@@ -12,7 +12,7 @@
 .org 0x0000
 
 /****************************************/
-/* CONFIGURACIÓN DE LA PILA */
+/* CONFIGURACIÃ“N DE LA PILA */
 
 RESET:
     LDI     R16, LOW(RAMEND)
@@ -79,7 +79,7 @@ MAIN_LOOP:
 
 	CLR     R22                 // SI LLEGA A 15, REINICIAMOS EL CONTADOR DE OVERFLOWS
 	INC     R23                 // INCREMENTAMOS EL CONTADOR PRINCIPAL
-	ANDI    R23, 0x0F           // LIMITAMOS A 4 BITS (0–15)
+	ANDI    R23, 0x0F           // LIMITAMOS A 4 BITS 
 
 SEGUNDO:
     RCALL   CONTINUAR           // LLAMAMOS RUTINA COTNINUAR 
@@ -111,7 +111,7 @@ WAIT_OVF:                      // FUNCION QUE ESPERA A QUE OCURRA UN OVERFLOW EN
 WAIT:
     IN      R16, TIFR0         // LEEMOS EL REGISTRO DEL TIMER0                     
     SBRS    R16, TOV0          // SI EL BIT TOV0 ESTA EN 1, SE SALTA LA SIGUIENTE INSTRUCCION
-    RJMP    WAIT               // SI TODAVIA NO HAY OVERFLOW (TOV0 = 0)
+    RJMP    WAIT               // SI TODAVIA NO HAY OVERFLOW 
     SBI     TIFR0, TOV0        // LIMPIAMOS LA BANDERA DE OVERFLOW
     RET                        // REGRESAMOS AL PROGRAMA PRINCIPAL
 
@@ -134,7 +134,7 @@ ESPERA_PC0:
     RJMP    ESPERA_PC0       
     RET
 
-RESTAR:                          // FUNCIÓN DE DECREMENTO 
+RESTAR:                          // FUNCIÃ“N DE DECREMENTO 
     DEC     R21
     ANDI    R21, 0x0F
     RCALL   DELAY
@@ -169,11 +169,11 @@ COMPARACION:
     LDI     R17, (1<<PB4)        // CARGAMOS EN R17 UNA MASCARA CON EL BIT PB4 EN 1
     EOR     R16, R17             // HACEMOS XOR ENTRE R16 Y LA MASCARA                      
     OUT     PORTB, R16           // ESCRIBIMOS EL NUEVO VALOR EN PORTB
-    CLR     R23                  // LIMPIAMOS R23 (PROBABLEMENTE CONTADOR AUXILIAR)
+    CLR     R23                  // LIMPIAMOS R23 CONTADOR DE LEDs
     RET                          // REGRESAMOS AL PROGRAMA PRINCIPAL
 	
 	               
-DELAY:                           // FUNCION DE ANTI REBOTE 
+DELAY:                           // FUNCION DE ANTI-REBOTE 
     LDI     R18, 255 
 D1:
     LDI     R19, 255
