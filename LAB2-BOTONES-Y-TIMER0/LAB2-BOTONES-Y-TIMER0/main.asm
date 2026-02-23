@@ -59,7 +59,7 @@ TABLE7SEG:
     STS		CLKPR, R16
 
 	LDI     R16, (1<<CS02)     // TIMER 0 (256 PRESCALER)
-    OUT     TCCR0B, R16
+    STS     TCCR0B, R16
 
     LDI     ZH, HIGH(TABLE7SEG<<1)     // CARGAMOS EN ZH LA PARTE ALTA DE LA DIRECCION
     LDI     ZL, LOW(TABLE7SEG<<1)      // CARGAMOS EN ZL LA PARTE BAJA DE LA DIRECCION
@@ -169,11 +169,8 @@ COMPARACION:
     LDI     R17, (1<<PB4)        // CARGAMOS EN R17 UNA MASCARA CON EL BIT PB4 EN 1
     EOR     R16, R17             // HACEMOS XOR ENTRE R16 Y LA MASCARA                      
     OUT     PORTB, R16           // ESCRIBIMOS EL NUEVO VALOR EN PORTB
-<<<<<<< HEAD
     CLR     R23                  // LIMPIAMOS R23 CONTADOR LEDS
-=======
     CLR     R23                  // LIMPIAMOS R23 CONTADOR DE LEDs
->>>>>>> b23b7f47c8be58da2235f74335f5f6468deeedbd
     RET                          // REGRESAMOS AL PROGRAMA PRINCIPAL
 	
 	               
@@ -187,3 +184,4 @@ D2:
     DEC     R18
     BRNE    D1
     RET
+
