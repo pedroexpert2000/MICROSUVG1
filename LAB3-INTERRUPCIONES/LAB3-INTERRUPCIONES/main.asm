@@ -166,11 +166,11 @@ OVERFLOW:                                        // FUNCIÓN DE OVERFLOW PARA REA
     BRNE    MULTIPLEXADO
 
     CLR     R25                                  // LIMPIAMOS CONTADOR 
-    INC     R22
+    
 
 
     //CONTADOR DE DECENAS (0–5)
-
+	INC     R22
     CPI     R22, 6                               // R22, CONTADOR DE DECENAS 
     BRNE    MULTIPLEXADO 
 
