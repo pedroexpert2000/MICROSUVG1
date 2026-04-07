@@ -12,6 +12,10 @@
 #include <stdint.h>
 
 /****************************************/
+// Encabezado (Libraries)
+volatile uint8_t contador = 0;
+
+/****************************************/
 // Function prototypes
 
 void setup();
@@ -30,7 +34,6 @@ int main(void)
 		PORTC &= ~((1<<DDC3) | (1<<DDC2) |(1<<DDC1) |(1<<DDC0));
 		delay(); 
 	}
-	
 }
 /****************************************/
 // NON-Interrupt subroutines

@@ -138,13 +138,6 @@ START:
     STS UCSR0B,R16                
     STS UCSR0C,R16                
 
-	LDI R16, (1<<TOIE2)          ; habilita interrupción por overflow del Timer2
-	STS TIMSK2, R16               ; activa la ISR del Timer2
-
-	LDS R16, (1<<CS22) | (1<<CS20) ; selecciona prescaler para Timer2
-	STS TCCR2B, R16               ; configura Timer2 con ese prescaler
-
-
     ; Configuración puertos
     LDI R16, 0xFF        ; PB0–PB3 salidas (PV0–PV3)
     OUT DDRB, R16
@@ -1396,9 +1389,9 @@ TIMER1_INT:
 	CPI R16,60             ; límite 60 segundos
 	BRLO SEGUNDOS_OK       ; si < 60, guardar
 
-	CLR R16                ; 60 ? 00
+	CLR R16                
 	STS SEGUNDOS,R16
-	RJMP INCREMENTAR_MIN   ; overflow ? incrementar minutos
+	RJMP INCREMENTAR_MIN   ; overflow / incrementar minutos
 
 SEGUNDOS_OK:
 	STS SEGUNDOS,R16       ; guardar valor actualizado
