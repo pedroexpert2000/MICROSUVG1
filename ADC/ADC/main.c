@@ -46,11 +46,11 @@ int main()
 }
 
 
-void initADC(uint8_t voltage, uint8_t HIGH_LOW, uint8_t control, uint8_t prescaler){
+void initADC(uint8_t voltage, uint8_t HIGH_LOW, uint8_t prescaler){
 
 	ADMUX = 0;
 	ADMUX |= voltage | HIGH_LOW;
 
 	ADCSRA = 0;
-	ADCSRA |= ADC_ENABLE | control | prescaler;
+	ADCSRA |= ADC_ENABLE | prescaler;
 }

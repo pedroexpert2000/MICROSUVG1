@@ -5,11 +5,14 @@
  * Author: Pedro Porras
  */ 
 
+
 #ifndef PWM1_H_
 #define PWM1_H_
 
 #include <avr/io.h>
 #include <stdint.h>
+
+//PB1 Y PB2
 
 // Modos de salida (COM)
 #define PWM1A_NO_INVERTIDO   (1<<COM1A1)
@@ -34,11 +37,11 @@
 #define PWM_WGM12           (1<<WGM12)
 
 // Prescalers 
-#define PWM_PR_1      (1<<CS10)
-#define PWM_PR_8      (1<<CS11)
-#define PWM_PR_64     (1<<CS11)|(1<<CS10)
-#define PWM_PR_256    (1<<CS12)
-#define PWM_PR_1024   (1<<CS12)|(1<<CS10)
+#define PWM1_PR_1      (1<<CS10)
+#define PWM1_PR_8      (1<<CS11)
+#define PWM1_PR_64     (1<<CS11)|(1<<CS10)
+#define PWM1_PR_256    (1<<CS12)
+#define PWM1_PR_1024   (1<<CS12)|(1<<CS10)
 
 
 void initPWM1(uint8_t config_A, uint8_t config_B, uint8_t PWM_MODE_A, uint8_t PWM_MODE_B, uint8_t prescaler, uint16_t num_comp);

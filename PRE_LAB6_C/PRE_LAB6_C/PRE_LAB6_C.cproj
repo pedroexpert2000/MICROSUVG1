@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>PWM</AssemblyName>
-    <Name>PWM</Name>
-    <RootNamespace>PWM</RootNamespace>
+    <AssemblyName>PRE_LAB6_C</AssemblyName>
+    <Name>PRE_LAB6_C</Name>
+    <RootNamespace>PRE_LAB6_C</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
@@ -123,29 +123,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="PWM0\PMW0.c">
+    <Compile Include="USART.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="PWM0\PMW0.h">
+    <Compile Include="USART.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="PWM1\PWM1.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="PWM1\PWM1.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="PWM2\PWM2.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="PWM2\PWM2.h">
-      <SubType>compile</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PWM2" />
-    <Folder Include="PWM1" />
-    <Folder Include="PWM0" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -28,7 +28,7 @@ volatile uint8_t pwm_cont;
 int main(void)
 {
     setup();
-    initPWM1(PWM1A_NO_INVERTIDO, 0 , ICR1_A, ICR1_B, PWM1_PR_8, 39999);
+    initPWM1(PWM1A_NO_INVERTIDO, 0 , ICR1_A, ICR1_B, PWM_PR_8, 39999);
 	initPWM2(PWM2A_NO_INVERTIDO, 0, PWM2_FAST_MODE, PWM2_PR_1024);
     initADC(ADC_AVCC, ADCH_ACT, PS_8);
 	sei();

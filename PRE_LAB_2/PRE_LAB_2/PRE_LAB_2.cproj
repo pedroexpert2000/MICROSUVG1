@@ -142,10 +142,22 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="PMW0.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PMW0.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="PWM1.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="PWM1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM2.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM2.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
