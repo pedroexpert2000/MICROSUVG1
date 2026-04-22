@@ -15,7 +15,7 @@
 #include "USART.h"  
 
 
-void initUSART(uint8_t config_A, uint8_t config_B, uint8_t config_C, uint8_t modo,  uint8_t stopbit, uint8_t charsize, uint8_t baud){
+void initUSART(uint8_t config_A, uint8_t config_B, uint8_t config_C, uint8_t modo,  uint8_t stopbit, uint8_t charsize, uint32_t baud){
 	
     uint16_t ubrr_value = (F_CPU / (16 * baud)) - 1;
 

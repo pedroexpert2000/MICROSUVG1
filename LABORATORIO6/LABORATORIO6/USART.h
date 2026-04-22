@@ -54,7 +54,7 @@
 #define CHAR_SIZE_8             (1<<UCSZ01)|(1<<UCSZ00) 
 
 
-void initUSART(uint8_t config_A, uint8_t config_B, uint8_t config_C, uint8_t modo, uint8_t stopbit, uint8_t charsize, uint32_t baud);
+void initUSART(uint8_t config_A, uint8_t config_B, uint8_t config_C, uint8_t modo,  uint8_t stopbit, uint8_t charsize, uint32_t baud);
 void writeChar(char c);
 void writeString(char* string);
 
