@@ -19,14 +19,11 @@
 //CONTROL
 #define ADC_ENABLE      (1<<ADEN)
 #define ADC_START       (1<<ADSC)
-#define ADC_AUTO        (1<<ADATE)1
-
-
+#define ADC_AUTO        (1<<ADATE)
 
 #define ADC_FLAG        (1<<ADIF)
 #define ADC_INT_ENABLE  (1<<ADIE)
 #define ADCH_ACT        (1<<ADLAR)
-
 
 #define PS_2        (1<<ADPS0)
 #define PS_4        (1<<ADPS1)

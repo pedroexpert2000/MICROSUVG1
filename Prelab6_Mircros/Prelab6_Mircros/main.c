@@ -55,8 +55,6 @@ void initUSART(void) {
     UBRR0L = (unsigned char)ubrr;
 
     UCSR0B = (1 << RXEN0) | (1 << TXEN0);
-
-    // Configuración de trama: 8 bits, sin paridad, 1 stop
     UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
 }
 
